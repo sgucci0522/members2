@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
-use App\Http\Controllers\CalenderController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +35,6 @@ Route::resource('post',PostController::class);
 
 require __DIR__.'/auth.php';
 
-Route::get('/calender',[CalenderController::class, 'index']);
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
+Route::get('/calendar/{monthOffset}', [CalendarController::class, 'index'])->name('calendar.index.offset');
+
